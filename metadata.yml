@@ -1,33 +1,37 @@
-Identifier: eos0aaa
-Slug: template-model
+Identifier: eos3wac
+Slug: moldeberta-smiles-encoder
 Status: In progress
-Title: This is a template model
-Description: |
-  This is a description of the template model.
-  You can use multiple lines in this description.
+Title: Chemistry-Informed Molecular Encoder
+Description: Given a SMILES string, returns a fixed-length molecular embedding 
+  encoding physicochemical properties and substructure information. Pretrained 
+  on 123 million PubChem molecules using a DeBERTaV2 backbone with 
+  chemistry-informed objectives beyond masked language modeling. Fine-tunable 
+  for property prediction tasks such as solubility, lipophilicity, blood-brain 
+  barrier permeability, toxicity, and bioactivity, outperforming SMILES-based 
+  encoders on 7 out of 9 MoleculeNet benchmarks.
 Deployment:
   - Local
   - Online
 Source: Local, Online
 Source Type: Internal, Replicated, External
 Task: Annotation, Representation, Sampling
-Subtask: Property calculation or prediction, Activity prediction, Featurization, Projection, Similarity search, Generation
-Input: 
+Subtask: Property calculation or prediction, Activity prediction, Featurization,
+  Projection, Similarity search, Generation
+Input:
   - Compound
 Input Dimension: 1
-Output: 
+Output:
   - Value
   - Score
   - Compound
   - Text
 Output Dimension: 1
 Output Consistency: Fixed, Variable
-Interpretation: |
-  The output of this template model should be interpreted like this.
+Interpretation: The output of this template model should be interpreted like 
+  this.
 Tag:
-  - Tag 1
-  - Tag 2
-  - Tag 3
+  - Chemical language model
+  - Embedding
 Biomedical Area:
   - Biomedical Area 1
   - Biomedical Area 2
@@ -36,6 +40,7 @@ Target Organism:
   - Target Organism 2
 Publication Type: Peer reviewed, Preprint, Other
 Publication Year: 2026
-Publication: https://example.com
-Source Code: https://example.com
-License: GPL-3.0-or-later, MIT, Apache-2.0...
+Publication: https://www.biorxiv.org/content/10.64898/2026.02.15.706011v2
+Source Code: https://github.com/pcdslab/MolDeBERTa
+License: Non-commercial
+Contributor: arnaucoma24
