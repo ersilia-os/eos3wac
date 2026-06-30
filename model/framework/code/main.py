@@ -1,37 +1,53 @@
-# imports
 import os
-import csv
 import sys
 import numpy as np
-from rdkit import Chem
-from rdkit.Chem.Descriptors import MolWt
+import torch
+from transformers import AutoTokenizer, AutoModel
 from ersilia_pack_utils.core import read_smiles, write_out
 
-# parse arguments
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 
-# current file directory
 root = os.path.dirname(os.path.abspath(__file__))
+checkpoints_dir = os.path.join(root, "..", "..", "checkpoints")
 
-# my model
+tokenizer = AutoTokenizer.from_pretrained(checkpoints_dir)
+model = AutoModel.from_pretrained(checkpoints_dir)
+model.eval()
+
+BATCH_SIZE = 32
+N_DIMS = 768
+_nan_row = [None] * N_DIMS
+
+
 def my_model(smiles_list):
-    return [MolWt(Chem.MolFromSmiles(smi)) for smi in smiles_list]
+    results = []
+    for i in range(0, len(smiles_list), BATCH_SIZE):
+        batch = smiles_list[i : i + BATCH_SIZE]
+        try:
+            inputs = tokenizer(
+                batch,
+                padding="max_length",
+                truncation=True,
+                max_length=128,
+                return_tensors="pt",
+            )
+            with torch.no_grad():
+                out = model(**inputs)
+            embeddings = out.last_hidden_state[:, 0, :].numpy()
+            for j in range(len(batch)):
+                results.append(embeddings[j])
+        except Exception:
+            results.extend([_nan_row] * len(batch))
+    return results
 
 
-# read SMILES from .csv file, assuming one column with header
 _, smiles_list = read_smiles(input_file)
 
-# run model
 outputs = my_model(smiles_list)
 
-#check input and output have the same lenght
-input_len = len(smiles_list)
-output_len = len(outputs)
-assert input_len == output_len
+assert len(smiles_list) == len(outputs)
 
-num_dims = outputs.shape[1]
-header = [f"feat_{str(i).zfill(3)}" for i in range(num_dims)]
+header = [f"feat_{str(i).zfill(3)}" for i in range(N_DIMS)]
 
-# write output in a .csv file
 write_out(outputs, header, output_file, np.float32)
