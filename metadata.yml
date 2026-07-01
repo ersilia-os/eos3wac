@@ -1,6 +1,6 @@
 Identifier: eos3wac
 Slug: moldeberta-smiles-encoder
-Status: In progress
+Status: Ready
 Title: Chemistry-Informed Molecular Encoder
 Description: Given a SMILES string, returns a fixed-length molecular embedding 
   encoding physicochemical properties and substructure information. Pretrained 
@@ -38,6 +38,18 @@ Source Code: https://github.com/pcdslab/MolDeBERTa
 License: CC-BY-NC-ND-4.0
 Contributor: arnaucoma24
 Incorporation Date: '2026-06-30'
+Last Packaging Date: '2026-07-01'
+Release: v1.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos3wac.zip
+DockerHub: https://hub.docker.com/r/ersiliaos/eos3wac
+Docker Architecture:
+  - AMD64
+  - ARM64
 Model Size: 338.0
 Environment Size: 1209.0
+Image Size: 1887.02
+Computational Performance 1: 36.77
+Computational Performance 2: 29.74
+Computational Performance 3: 42.52
+Computational Performance 4: 211.77
+Computational Performance 5: 987.93
