@@ -2,6 +2,7 @@
 
 Given a SMILES string, returns a fixed-length molecular embedding encoding physicochemical properties and substructure information. Pretrained on 123 million PubChem molecules using a DeBERTaV2 backbone with chemistry-informed objectives beyond masked language modeling. Fine-tunable for property prediction tasks such as solubility, lipophilicity, blood-brain barrier permeability, toxicity, and bioactivity, outperforming SMILES-based encoders on 7 out of 9 MoleculeNet benchmarks.
 
+This model was incorporated on 2026-06-30.
 
 
 ## Information
@@ -43,8 +44,11 @@ _10 of 768 columns are shown_
 ### Source and Deployment
 - **Source:** `Local`
 - **Source Type:** `External`
+- **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos3wac.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos3wac.zip)
 
 ### Resource Consumption
+- **Model Size (Mb):** `338`
+- **Environment Size (Mb):** `1209`
 
 
 ### References
