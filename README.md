@@ -1,6 +1,6 @@
 # Chemistry-Informed Molecular Encoder
 
-Returns a 768-dimensional embedding from MolDeBERTa, pretrained on 123 million PubChem molecules with a DeBERTaV2 backbone. Beyond masked-token prediction, training included chemistry-informed objectives so that physicochemical properties and substructure information are encoded rather than left implicit in the string. The embedding is drawn from the classification token and is task-independent, intended as input to downstream models rather than read directly.
+Given a SMILES string, returns a fixed-length molecular embedding encoding physicochemical properties and substructure information. Pretrained on 123 million PubChem molecules using a DeBERTaV2 backbone with chemistry-informed objectives beyond masked language modeling. Fine-tunable for property prediction tasks such as solubility, lipophilicity, blood-brain barrier permeability, toxicity, and bioactivity, outperforming SMILES-based encoders on 7 out of 9 MoleculeNet benchmarks.
 
 This model was incorporated on 2026-06-30.Last packaged on 2026-07-01.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2026-06-30.Last packaged on 2026-07-01.
 ### Output
 - **Output Dimension:** `768`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** 768 features encoding molecular structure from a chemistry-informed transformer encoder.
+- **Interpretation:** 768-dimensional molecular embedding from a chemistry-informed DeBERTaV2 encoder pretrained on 123M PubChem SMILES.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
