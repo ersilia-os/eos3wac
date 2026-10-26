@@ -5,3 +5,8 @@ commands:
     - ["pip", "transformers", "4.56.2"]
     - ["pip", "numpy", "1.26.4"]
     - ["pip", "ersilia-pack-utils", "0.1.5"]
+gpu:
+    - ["pip", "torch", "2.7.1", "--index-url", "https://download.pytorch.org/whl/cu126"]
+    - ["pip", "transformers", "4.56.2"]
+    - ["pip", "numpy", "1.26.4"]
+    - ["pip", "ersilia-pack-utils", "0.1.5"]
