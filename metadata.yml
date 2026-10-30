@@ -2,14 +2,14 @@ Identifier: eos3wac
 Slug: moldeberta-smiles-encoder
 Status: Ready
 Title: Chemistry-Informed Molecular Encoder
-Description: Returns a 768-dimensional embedding from MolDeBERTa, a DeBERTaV2 encoder
-  pretrained on 123 million PubChem SMILES with byte-level tokenisation that avoids
-  merging chemically unrelated characters. Beyond masked-token prediction, de Oliveira
-  and Saeed added objectives regressing and classifying molecular descriptors and
-  contrasting similar structures, so physicochemical and substructure information
-  is encoded rather than implicit. Fine-tuned versions beat earlier SMILES encoders
-  on seven of nine MoleculeNet benchmarks. Features come from the classification token
-  and are not read one by one.
+Description: Returns a 768-dimensional embedding from MolDeBERTa, a DeBERTaV2 
+  encoder pretrained on 123 million PubChem SMILES with byte-level tokenisation 
+  that avoids merging chemically unrelated characters. Beyond masked-token 
+  prediction, de Oliveira and Saeed added objectives regressing and classifying 
+  molecular descriptors and contrasting similar structures, so physicochemical 
+  and substructure information is encoded rather than implicit. Fine-tuned 
+  versions beat earlier SMILES encoders on seven of nine MoleculeNet benchmarks.
+  Features come from the classification token and are not read one by one.
 Deployment:
   - Local
 Source: Local
@@ -23,8 +23,8 @@ Output:
   - Value
 Output Dimension: 768
 Output Consistency: Fixed
-Interpretation: 768 features from the classification token of a DeBERTaV2 encoder
-  pretrained on 123 million PubChem SMILES.
+Interpretation: 768 features from the classification token of a DeBERTaV2 
+  encoder pretrained on 123 million PubChem SMILES.
 Tag:
   - Chemical language model
   - Embedding
@@ -40,7 +40,7 @@ License: CC-BY-NC-ND-4.0
 Contributor: arnaucoma24
 Incorporation Date: '2026-06-30'
 Last Packaging Date: '2026-07-01'
-Release: v1.0.0
+Release: v1.0.1
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos3wac.zip
 DockerHub: https://hub.docker.com/r/ersiliaos/eos3wac
 Docker Architecture:
